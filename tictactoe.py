@@ -14,16 +14,17 @@ def display_game(game_values):
     print('-------------')
 
 
-def choose_marker():
-    global player1_marker, player2_marker
-    while player1_marker not in ['X', 'O']:
-        player1_marker = input('Player 1: Do you want to choose X or O? ').upper()
+def choose_marker(player_one, player_two):
+    while player_one not in ['X', 'O']:
+        player_one = input('Player 1: Do you want to choose X or O? ').upper()
 
-        if player1_marker == 'X':
-            player2_marker = 'O'
+        if player_one == 'X':
+            player_two = 'O'
 
-        if player1_marker == 'O':
-            player2_marker = 'X'
+        if player_one == 'O':
+            player_two = 'X'
+
+    return player_one, player_two
 
 
 def position_choice(board):
@@ -79,7 +80,6 @@ def check_win(board, marker):
 
 while True:
     game_on = True
-    win = False
     game_list = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     player1_marker = ''
     player2_marker = ''
@@ -90,7 +90,7 @@ while True:
     else:
         turn = 'Player 2'
 
-    choose_marker()
+    player1_marker, player2_marker = choose_marker(player1_marker, player2_marker)
 
     while game_on:
         display_game(game_list)
