@@ -1,1 +1,1 @@
-# Simple python tic tac toe game
+# Simple tic tac toe game created using Python
